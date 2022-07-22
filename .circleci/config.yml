@@ -80,6 +80,21 @@ jobs:
             npm install
             npm audit --audit-level=critical
 
+  scan-backend:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys: [backend-build]         
+      - run: 
+          name: Test job
+          command: |
+            cd backend
+            npm install
+            npm audit --audit-level=critical
+
+
                 
 workflows:
   default:
