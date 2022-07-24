@@ -2,6 +2,29 @@ version: 2.1
 
 
 commands:
+
+commands:
+  install_awscli:
+    description: Install AWS CLI v2
+    steps:
+      - run:
+          name: Install AWS CLI v2
+          command: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+  install_ansible:
+    description: Install Ansible
+    steps:
+      - run:
+          name: Install Ansible
+          command: |
+            sudo apt update
+            sudo apt install software-properties-common -y
+            sudo add-apt-repository --yes --update ppa:ansible/ansible
+            sudo apt install ansible -y
+
+  
   destroy-environment:
     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
     parameters:
@@ -158,6 +181,8 @@ jobs:
       - image: python:3.7-alpine3.11
     steps:
       - checkout
+      - install_awscli
+      - install_ansible
       - add_ssh_keys:
           fingerprints: [08:38:64:a7:8f:82:07:5f:3b:6e:b3:69:8b:13:ed:98]
       - attach_workspace:
@@ -189,5 +214,5 @@ workflows:
       - scan-backend:
           requires: [build-backend]
       - deploy-infrastructure
-      - configure-infrastructure
+      - configure-infrastructure:
           requires: [deploy-infrastructure]
