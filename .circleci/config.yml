@@ -20,7 +20,7 @@ commands:
             sudo apt install software-properties-common -y
             sudo add-apt-repository --yes --update ppa:ansible/ansible
             sudo apt install ansible -y
-            name: Install tar utility
+
   install_tar_gzip:
     description: Install Tar && GZip      
     steps:
