@@ -171,9 +171,8 @@ jobs:
           command: |
             cd .circleci/ansible
               ansible-playbook -i inventory.txt configure-server.yml
- 
-
-
+      
+      - destroy-environment
 
                 
 workflows:
@@ -190,3 +189,5 @@ workflows:
       - scan-backend:
           requires: [build-backend]
       - deploy-infrastructure
+      - configure-infrastructure
+          requires: [deploy-infrastructure]
