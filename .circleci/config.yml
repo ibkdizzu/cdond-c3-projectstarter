@@ -1,8 +1,5 @@
 version: 2.1
 
-
-commands:
-
 commands:
   install_awscli:
     description: Install AWS CLI v2
