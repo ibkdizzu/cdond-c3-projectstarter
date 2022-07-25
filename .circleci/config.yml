@@ -232,7 +232,6 @@ jobs:
               curl https://kvdb.io/9zRRgLYyxmJKjDxWMgNYTA/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
             fi
       - destroy-environment
-      - revert-migrations
 
   deploy-frontend:
     docker:
@@ -270,7 +269,6 @@ jobs:
 
     
       - destroy-environment
-      - revert-migrations
                 
 workflows:
   default:
