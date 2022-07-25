@@ -223,7 +223,7 @@ jobs:
           command: |
             cd backend
             npm cache clean -f
-            rm -rf --cached node_modules
+            rm -rf node_modules
             npm install
             npm run migrations > migrations_dump.txt
       - run:
