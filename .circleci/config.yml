@@ -219,7 +219,7 @@ jobs:
     steps:
       - checkout
       - install_awscli
-      - run:
+      - run: #Test
           name: Run migrations 
           command: |
             cd backend
