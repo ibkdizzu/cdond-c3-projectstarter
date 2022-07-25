@@ -27,7 +27,7 @@ commands:
       - run:
           name: Install Tar_GZip            
           command: |
-            yum install -y tar gzip
+            yum install tar gzip -y
 
 
   install_nodejs:
