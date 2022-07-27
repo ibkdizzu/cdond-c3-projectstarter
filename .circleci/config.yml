@@ -238,9 +238,10 @@ jobs:
 
   deploy-frontend:
     docker:
-      - image: amazon/aws-cli
+      - image: cimg/base:stable
     steps:
       - checkout
+      - install_awscli
       - install_ansible
       - install_nodejs
       - restore_cache:
@@ -289,6 +290,6 @@ workflows: #workflows
       - configure-infrastructure:
           requires: [deploy-infrastructure]
       - run-migrations:
-          requires: [configure-infrastructure]
+          requires: [deploy-infrastructure]]
       - deploy-frontend:
           requires: [run-migrations]
