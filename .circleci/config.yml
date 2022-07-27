@@ -296,16 +296,18 @@ jobs:
 
   deploy-backend:
     docker:
-      - image: python:3.7-alpine3.16
+      - image: cimg/base:stable
     steps:
       - checkout
+      - install_awscli
+      - install_ansible
+      - install_nodejs 
       - add_ssh_keys:
           fingerprints: [08:38:64:a7:8f:82:07:5f:3b:6e:b3:69:8b:13:ed:98] 
       - run:
           name: Install Tar_GZip            
           command: |
-            # sudo apt install tar gzip -y
-            apk add --update --no-cache tar gzip node.js aws-cli ansible
+            sudo apt install tar gzip -y
       - attach_workspace:
           at: ~/
       - restore_cache:
@@ -319,6 +321,7 @@ jobs:
           name: Deploy backend
           command: |
             cd backend
+            npm i
             npm run build
             cd ..
             # Zip the directory
