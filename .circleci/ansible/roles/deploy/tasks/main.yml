@@ -6,13 +6,13 @@
 
 - name: "Unarchive backend files"
   unarchive:
-    src: artifact.tar.gz
+    src: ~/project/artifact.tar.gz
     dest: ~/backend-build
 
 - name: "Installing Node Dependencies"
   shell: |
     cd ~/backend-build
-    npm i
+    npm install
 - name: "Executing Node build with PM2"
   shell: |
     cd ~/backend-build/dist
