@@ -294,7 +294,7 @@ jobs:
       - revert-migrations
 
 
- deploy-backend:
+deploy-backend:
     docker:
       - image: cimg/base:stable
     steps:
@@ -354,4 +354,5 @@ workflows: #workflows
           requires: [deploy-infrastructure]
       - deploy-frontend:
           requires: [run-migrations]
-
+      - deploy-backend:
+          requires: [run-migrations]
