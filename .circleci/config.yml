@@ -311,7 +311,7 @@ jobs:
       - run:
           name: Install Tar_GZip            
           command: |
-            yum install tar gzip -y 
+            sudo apt install tar gzip -y 
       - run:
           name: Install dependencies
           command: |
