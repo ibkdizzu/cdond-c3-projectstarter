@@ -294,7 +294,7 @@ jobs:
       - revert-migrations
 
 
-deploy-backend:
+  deploy-backend:
     docker:
       - image: cimg/base:stable
     steps:
