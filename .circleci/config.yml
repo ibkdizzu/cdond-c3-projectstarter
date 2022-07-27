@@ -333,9 +333,6 @@ jobs:
 
       - destroy-environment
       - revert-migrations
-
-
-
                 
 workflows: #workflows
   default:
