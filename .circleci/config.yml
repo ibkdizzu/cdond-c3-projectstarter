@@ -406,7 +406,7 @@ jobs:
             fi
             
                 
-workflows: #workflows
+workflows:
   default:
     jobs:
       - deploy-infrastructure
