@@ -374,6 +374,8 @@ workflows: #workflows
           requires: [deploy-infrastructure]
       - run-migrations:
           requires: [deploy-infrastructure]
+      - deploy-backend:
+          requires: [run-migrations]
       - deploy-frontend:
           requires: [run-migrations]
       - smoke-test:
