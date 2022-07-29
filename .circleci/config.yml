@@ -344,6 +344,10 @@ jobs:
       - install_nodejs
       - install_ansible
       - run:
+          name: Install dependencies.
+          command: ?
+            apk add --update --no-cache curl
+      - run:
           name: Backend smoke test.
           command: |
             export BACKEND_IP=$(aws ec2 describe-instances \
