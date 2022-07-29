@@ -345,7 +345,7 @@ jobs:
       - install_ansible
       - run:
           name: Install dependencies.
-          command: ?
+          command: |
             apk add --update --no-cache curl
       - run:
           name: Backend smoke test.
