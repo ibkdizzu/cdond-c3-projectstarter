@@ -252,6 +252,10 @@ jobs:
     steps:
       - checkout
       - install_awscli
+      - restore_cache:
+          keys: [backend-build]
+      - attach_workspace:
+          at: ~/
       - run: 
           name: Run migrations 
           command: |
@@ -352,10 +356,10 @@ jobs:
 
   smoke-test:
     docker:
-      - image: amazon/aws-cli
+      - image: cimg/base:stable
     steps:
       - checkout
-      - install_nodejs
+      - install_awscli
       - install_ansible
       - run:
           name: Install dependencies.
