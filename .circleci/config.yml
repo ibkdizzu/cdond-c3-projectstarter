@@ -235,7 +235,7 @@ jobs:
             echo TYPEORM_MIGRATIONS= $TYPEORM_MIGRATIONS >> backend/.env
             echo TYPEORM_MIGRATIONS_DIR= $TYPEORM_MIGRATIONS_DIR >> backend/.env 
             echo TYPEORM_PASSWORD= $TYPEORM_PASSWORD >> backend/.env
-            echo TYPEORM_PORT= 5432 >> backend/.env
+            echo TYPEORM_PORT= $TYPEORM_PORT >> backend/.env
             echo TYPEORM_USERNAME= $TYPEORM_USERNAME >> backend/.env     
             cat backend/.env
             cd .circleci/ansible
@@ -373,7 +373,7 @@ jobs:
               --query 'Reservations[*].Instances[*].PublicIpAddress' \
               --output text)
             export API_URL="http://${BACKEND_IP}:3030"
-            echo "${API_URL/api/status}"
+            echo "${API_URL}"
 
       - run:
           name: Frontend smoke test.
