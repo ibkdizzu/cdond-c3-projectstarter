@@ -364,7 +364,7 @@ jobs:
       - run:
           name: Install dependencies.
           command: |
-            apk add --update --no-cache curl
+            sudo apt install curl
       - run:
           name: Backend smoke test.
           command: |
