@@ -221,7 +221,7 @@ jobs:
       - install_awscli
       - install_ansible
       - add_ssh_keys:
-          fingerprints: [08:38:64:a7:8f:82:07:5f:3b:6e:b3:69:8b:13:ed:98]
+          fingerprints: [f6:6f:19:f2:fa:c5:2d:8e:54:90:aa:c8:dd:6e:f4:b5]
       - attach_workspace:
           at: ~/
       - run:
@@ -322,7 +322,7 @@ jobs:
       - install_ansible
       - install_nodejs 
       - add_ssh_keys:
-          fingerprints: [08:38:64:a7:8f:82:07:5f:3b:6e:b3:69:8b:13:ed:98] 
+          fingerprints: [f6:6f:19:f2:fa:c5:2d:8e:54:90:aa:c8:dd:6e:f4:b5] 
       - run:
           name: Install Tar_GZip          
           command: |
