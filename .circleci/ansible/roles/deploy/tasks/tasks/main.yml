@@ -9,15 +9,13 @@
     src: ~/project/artifact.tar.gz
     dest: ~/backend-build
 
-- name: "Installing Node Dependencies"
+- name: Start the backend code
   shell: |
     cd ~/backend-build
     npm install
-- name: "Executing Node build with PM2"
-  shell: |
-    cd ~/backend-build/dist
     pm2 stop default
-    pm2 start main.js
+    pm2 start npm --start
+
 
   register: execute_node
 
