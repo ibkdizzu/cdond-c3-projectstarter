@@ -1,28 +1,28 @@
 ---
 - name: "Creates backend app directory"
   file:
-    path: ~/backend-app
+    path: ~/backend-build
     state: directory
 
 - name: "Unarchive backend files"
   unarchive:
     src: artifact.tar.gz
-    dest: ~/backend-app
+    dest: ~/backend-build
 
 - name: "Installing Node Dependencies"
   shell: |
-    cd ~/backend-app
+    cd ~/backend-build
     npm i
 - name: "Executing Node app with PM2"
   shell: |
-    cd ~/backend-app/dist
+    cd ~/backend-build/dist
     pm2 stop default
     pm2 start main.js
-  register: execute_node
+
 
 - name: print message
   debug:
-    msg: "{{ execute_node.stdout_lines }}"
+    msg: "{{Welcome to Udapeople}}"
 
 - name: "Configure pm2 to start as service"
   shell: |
