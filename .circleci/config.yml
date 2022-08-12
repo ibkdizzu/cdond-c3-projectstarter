@@ -31,6 +31,14 @@ commands:
             curl -fsSL https://deb.nodesource.com/setup_13.x | sudo -E bash -
             sudo apt install -y nodejs
 
+  install_tar_gzip:
+    description: Install Tar && GZip      
+    steps:
+      - run:
+          name: Install Tar_GZip            
+          command: |
+            yum install tar gzip -y 
+
   destroy-environment:
     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
     parameters:
@@ -251,13 +259,14 @@ jobs:
       - checkout
       - install_awscli
       - install_ansible
-      - install_nodejs    
+      - install_nodejs
+      - install_nodejs
       - add_ssh_keys:
           fingerprints: ["d5:a4:0d:bd:36:a7:d2:03:2c:10:93:6a:7c:d1:a7:26"]
       - run:
           name: Install dependencies
           command: |
-            apk add --update tar gzip npm
+            npm install
       - attach_workspace:
           at: ~/
       - run:
